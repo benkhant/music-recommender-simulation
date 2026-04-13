@@ -144,6 +144,20 @@ Terminal output showing the ranked recommendations, scores, and reasons:
 
 ![Terminal output showing recommendations](recommendations.png)
 
+## Adversarial Profile Screenshots
+
+Terminal output for edge-case profiles that stress the scoring logic:
+
+![Contradictory High-Energy Sad](screenshots/contradictory-high-energy-sad.png)
+
+![Numeric Only](screenshots/numeric-only.png)
+
+![Impossible Range](screenshots/impossible-range.png)
+
+![Whitespace Case Mismatch](screenshots/whitespace-case-mismatch.png)
+
+![Acoustic Contradiction](screenshots/acoustic-contradiction.png)
+
 ---
 
 ## 7. `model_card_template.md`

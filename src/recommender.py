@@ -80,7 +80,7 @@ def score_song(user_prefs: Dict, song: Dict) -> Tuple[float, List[str]]:
     reasons: List[str] = []
 
     # Phase-2 style weighted exact matches.
-    genre_weight = 2.0
+    genre_weight = 1.0
     mood_weight = 1.5
 
     favorite_genre = str(user_prefs.get("favorite_genre", "")).strip().lower()
@@ -117,8 +117,9 @@ def score_song(user_prefs: Dict, song: Dict) -> Tuple[float, List[str]]:
         else:
             closeness = max(0.0, 1.0 - abs(value - target))
 
-        score += closeness
-        reasons.append(f"{song_key} closeness (+{closeness:.2f})")
+        contribution = closeness * 2.0 if song_key == "energy" else closeness
+        score += contribution
+        reasons.append(f"{song_key} closeness (+{contribution:.2f})")
 
     if "likes_acoustic" in user_prefs and "acousticness" in song:
         likes_acoustic = bool(user_prefs["likes_acoustic"])
